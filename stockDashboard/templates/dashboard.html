@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row"><!--flex-->
+  <div class="column" style="background-color:white;"></div>
+    <div class="flex-container">
+  <div>{{IndexData.0.name}}
+    <div class="indexvalue_green">{{IndexData.0.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.0.pChange}}</div>
+  </div>
+  <div >{{IndexData.1.name}}
+    <div class="indexvalue_green">{{IndexData.1.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.1.pChange}}</div>
+  </div>
+  <div>{{IndexData.2.name}}
+    <div class="indexvalue_green">{{IndexData.2.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.2.pChange}}</div>
+  </div>
+  <div>{{IndexData.3.name}}
+    <div class="indexvalue_green">{{IndexData.3.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.3.pChange}}</div>
+  </div>
+</div>
+
+  <!--</div>
+</div>--><br><br><br><br>
+<div class="row">
+    <div class="column"><br>
+<table class="center" width="50%" border="False"><!--table-->
+  <tr>
+    <th bgcolor="#3a2d7d";>Stock Code</th>
+    <th bgcolor="#3a2d7d";>Quantity</th>
+    <th bgcolor="#3a2d7d";>Average Price</th>
+    <th bgcolor="#3a2d7d";>Total Cost</th>
+  </tr>
+  {% for key, value in data.items %}
+    <tr>
+      {%for key1, value1 in value.items %}
+      <td style="word-wrap: break-word">{{value1}}</td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+    </div>
+
+  <div class="column">
+<div id="container" style="width: 75%;"><!--pie-->
+    <canvas id="pie-chart"></canvas>
+  </div>
+  </div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{ StockTotal|safe }},
+          backgroundColor: [
+            'red', 'blue', 'green', '#C0C0C0', '#D3D3D3'
+          ],
+          label: 'Population'
+        }],
+        labels: {{ StockList|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+  </script>
+{% endblock %}

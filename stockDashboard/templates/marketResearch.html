@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Market Research{% endblock %}
+{% block content %}
+<!--market research start-->
+<h1>Market Commentary</h1>
+<div class="row"><!--flex-->
+  <div class="column" style="background-color:white;"></div>
+    <div class="flex-container">
+  <div>{{IndexData.0.name}}
+    <div class="indexvalue_green">{{IndexData.0.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.0.pChange}}</div>
+  </div>
+  <div >{{IndexData.1.name}}
+    <div class="indexvalue_green">{{IndexData.1.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.1.pChange}}</div>
+  </div>
+  <div>{{IndexData.2.name}}
+    <div class="indexvalue_green">{{IndexData.2.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.2.pChange}}</div>
+  </div>
+  <div>{{IndexData.3.name}}
+    <div class="indexvalue_green">{{IndexData.3.lastPrice}}</div>
+    <div class="indexvalue_red">{{IndexData.3.pChange}}</div>
+  </div>
+</div>
+
+
+<form class="example" action="" style="margin:auto;max-width:300px" method='POST'
+      xmlns:color="http://www.w3.org/1999/xhtml">
+  {% csrf_token %}
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form><br><br><br><br><br>
+{% if count %}
+<center><table width="50%" border="False">
+  <tr>
+    <th bgcolor="#3a2d7d";>Symbol</th>
+    <th bgcolor="#3a2d7d";>Company Name</th>
+    <th bgcolor="#3a2d7d";>Open</th>
+    <th bgcolor="#3a2d7d";>Day High</th>
+    <th bgcolor="#3a2d7d";>Day Low</th>
+    <th bgcolor="#3a2d7d";>Previous Close</th>
+    <th bgcolor="#3a2d7d";>Last Price</th>
+    <th bgcolor="#3a2d7d";>% change</th>
+  </tr>
+<tr>
+  {% for value in data %}
+   <td>{{value}}</td>
+  {% endfor %}
+</tr>
+</table></center>
+{% endif %}
+{% for msg in messages %}
+  <p style= "color:red;"> {{msg}}</p>
+{% endfor %}
+
+<!--market research end-->
+
+
+{% endblock %}

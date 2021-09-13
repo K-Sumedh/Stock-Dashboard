@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<!--SignIn box start-->
+<form class="form" method="post">
+               {% csrf_token %}
+<div class="tab-header"><!--header start-->
+    <div class="active">Sign In</div><!--signup-->
+</div><!--header end-->
+    <div class="tab-content">
+    <div class="tab-body">
+      <div class="form-element">
+        {{form.Email_SI}}
+      </div>
+      <div class="form-element">
+        {{form.Password_SI}}
+      </div><br><br>
+  <div class="tab-body active">
+      <div class="form-element">
+        <button type="submit">Sign In</button><br><br><br><br>
+        {% for msg in messages %}
+      <p> {{msg}}</p>
+        {% endfor %}
+      </div>
+    <br><br>
+   </div><!--tab body-->
+  </div><!--tab content end-->
+</div>
+</form><!--SignIn box end-->
+<!--form end-->
+{% endblock %}

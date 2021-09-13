@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Gainers/Losers{% endblock %}
+
+{% block content %}
+<style>
+    .row {
+  margin-left:200px;
+  /*margin-right:50px;*/
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 70%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+h1{
+    font-style:normal;
+}
+</style>
+
+<!--gainerslosers start-->
+<div class="row">
+    <div class="column"><!--gainers table start-->
+        <table width="30%" border="False">
+            <h1>Top Gainers</h1>
+            <tr>
+            <th bgcolor="green";>Symbol</th>
+            <th bgcolor="green";>LTP</th>
+            <th bgcolor="green";>% Change</th>
+            <th bgcolor="green";>Volume</th>
+            </tr>
+        {% for i in TopGainers %}
+            <tr>
+            <td>{{i.symbol}}</td>
+            <td>{{i.ltp}}</td>
+            <td>{{i.netPrice}}</td>
+            <td>{{i.tradedQuantity}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div><!--gainers table end-->
+
+    <div class="column"><!--losers table start-->
+        <table width="30%" border="False">
+            <h1>Top Losers</h1>
+            <tr>
+            <th bgcolor="red";>Symbol</th>
+            <th bgcolor="red";>LTP</th>
+            <th bgcolor="red";>% Change</th>
+            <th bgcolor="red";>Volume</th>
+            </tr>
+        {% for i in TopLosers %}
+            <tr>
+            <td>{{i.symbol}}</td>
+            <td>{{i.ltp}}</td>
+            <td>{{i.netPrice}}</td>
+            <td>{{i.tradedQuantity}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div><!--losers table end-->
+</div>
+
+
+
+
+
+<!--gainerslosers end-->
+
+
+{% endblock %}

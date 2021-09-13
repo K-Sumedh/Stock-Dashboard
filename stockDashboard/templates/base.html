@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+<style>
+    h1{
+        font-style:normal;
+        text-align: center;
+    }
+</style>
+</head>
+<title>{% block title %} {% endblock %}</title>
+<body>
+{% load static %}
+{% block menubar %}
+<ul>
+    <li><img src="../static/css/logo.jpg" alt="Logo" width="500" height="100"></li>
+    {% if user.is_authenticated %}
+      <li><a href="{% url 'dashboard' user %}">Dashboard</a></li>
+      <li><a href="{% url 'watchlist' user %}">WatchList</a></li>
+    {% endif %}
+  <li><a href="{% url 'marketresearch' user %}">Market Research</a></li>
+    {% if user.is_authenticated %}
+    {% else %}
+    <li><a href="{% url 'gainerslosers' user %}">Gainers/Losers</a></li>
+    <li><a href="{% url 'home' %}">Sign In</a></li>
+    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Sign Out</a></li>
+    {% endif%}
+    {% if user.is_authenticated %}
+        <h1> Welcome {{user}}</h1>
+    {% endif%}
+
+</ul><hr>
+{% endblock %}
+{% block content %}
+{% endblock %}
+<!--<script type="text/javascript" src="../static/js/login.js"></script>-->
+</body>
+<!--<footer class="footer">
+  &copy;All rights reserved.
+</footer>-->
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio Management | Home</title>
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+	<!--Copy to all--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<!--heading--><!--Copy to all pages start-->
+<ul>
+  <li><img src="logo.png" alt="Logo" width="200" height="100"></li>
+  <li><a class="active" href="home.html">Home</a></li>
+  <li><a href="dashboard.html">Dashboard</a></li> 
+  <li><a href="watchlist.html">WatchList</a></li>
+  <li><a href="marketResearch.html">Market Research</a></li>
+  <li><a href="SignIn.html">Sign In</a></li>
+  <li><a href="SignUp.html">Sign Up</a></li>
+<!--<form class="example" action="" style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Search.." name="search">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>-->
+</ul>
+</div><!--menu bar end.....Copy to all pages end-->
+
+<!--home start-->
+<h2>Dummy text and chart</h2>
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<div><script>
+var xyValues = [
+  {x:50, y:7},
+  {x:60, y:8},
+  {x:70, y:8},
+  {x:80, y:9},
+  {x:90, y:9},
+  {x:100, y:9},
+  {x:110, y:10},
+  {x:120, y:11},
+  {x:130, y:14},
+  {x:140, y:14},
+  {x:150, y:15}
+];
+
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgb(0,0,255)",
+      data: xyValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      xAxes: [{ticks: {min: 40, max:160}}],
+      yAxes: [{ticks: {min: 6, max:16}}],
+    }
+  }
+});
+</script></div>
+<!--home end-->
+<div class="footer">
+  <p>All rights reserved.</p>
+</div>
+
+</body>
+</html>

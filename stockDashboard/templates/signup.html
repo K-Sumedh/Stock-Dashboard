@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+
+<div class="form"><!--box start-->
+<div class="tab-header"><!--header start-->
+    <div class="active">Sign Up</div><!--signup-->
+</div><!--header end-->
+
+<form method="POST">
+    {% csrf_token %}
+<div class="tab-content">
+    <div class="tab-body">
+    {% for field in form %}
+        <div class="form-element">
+        {{ field }}
+            {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+        </div>
+              {% for msg in messages %}
+      <p> {{msg}}</p>
+        {% endfor %}
+        {% endfor %}</div>
+
+	<div class="tab-body active">
+      <div class="form-element">
+        <button type="submit">Sign Up</button>
+      </div>
+	 </div><!--tab body-->
+	</div><!--tab content end-->
+<!--box end-->
+</form>
+
+
+{% endblock %}
+

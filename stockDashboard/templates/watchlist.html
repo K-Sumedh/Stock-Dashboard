@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Watchlist{% endblock %}
+
+{% block content %}
+<style>
+    /* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: green;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+  border-radius: 8px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: relative;
+  bottom: 0;
+  /*right: 30px;*/
+  left: 500px;
+  border: 3px solid red;
+  z-index: 9;
+  width:25%;
+    /*text-align: left;
+    vertical-align: middle;
+    border-radius:10px;*/
+}
+
+/* Add styles to the form container */
+.form-contain {
+ /* display:cover;*/
+  padding: 10px;
+  background-color: white;
+  font-family: "Oswald";
+}
+
+/* Full-width input fields */
+.form-contain input[type=text], .form-contain input[type=password], .form-contain input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-contain input[type=text]:focus, .form-contain input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-contain .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+  border-radius: 8px;
+}
+
+/* Add a red background color to the cancel button */
+.form-contain .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-contain .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+  </style>
+
+{% if count %}
+<center><button class="open-button" onclick="openForm()">Add to Watchlist</button></center><br>
+{% else %}
+<div>
+    <center><button class="open-button" onclick="openForm()">Add to Watchlist</button></center>
+</div><br>
+{% endif %}
+
+
+<!--popup form start-->
+<div class="form-popup" id="myForm">
+    <form action="" class="form-contain" method="POST">
+    {% csrf_token %}
+    <h3>Add to Watchlist</h3>
+    {{form.ticker}}
+    {{form.trade_Date}}
+    {{form.Quantity}}
+    {{form.Price}}
+    <button type="submit" onClick="window.location.reload();" class="btn">Add</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+  </form>
+</div>
+
+{% if count %}
+<table class="center" width="60%" border="False">
+  <tr>
+    <th bgcolor="#3a2d7d";>Stock Code</th>
+    <th bgcolor="#3a2d7d";>Quantity</th>
+    <th bgcolor="#3a2d7d";>Average Price</th>
+    <th bgcolor="#3a2d7d";>Total Cost</th>
+  </tr>
+  {% for key, value in data.items %}
+    <tr>
+      {%for key1, value1 in value.items %}
+      <td style="word-wrap: break-word">{{value1}}</td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+
+</table>
+{% endif %}
+
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+{% endblock %}
+<!--watchlist end-->
+
+
