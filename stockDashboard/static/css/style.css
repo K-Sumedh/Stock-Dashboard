@@ -1,0 +1,293 @@
+* {/*Copy to all pages start*/
+  box-sizing:border-box;
+}
+
+body {
+  background:white;
+  /*font-family:"Raleway";
+  dices-over-newspaper-2656028_960_720.jpg*/
+  background-image: url("background.jpg");
+  background-size: cover;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  align-self : center;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  font-size: 20px;
+  text-align: right;
+  padding: 30px 30px;
+  text-decoration: none;
+  color:grey;
+  font-family: "Oswald";
+}
+
+li a:hover {
+  background-color: lightgrey;
+}
+
+h1{
+  text-align: center;
+  color: grey;
+  font-family: "Oswald";
+  font-style: italic;
+}
+
+h2{
+  text-align: left;
+  color: black;
+  font-family: "Oswald";
+  font-style: italic;
+}
+
+h3{
+  text-align: left;
+  color: black;
+  font-family: "Oswald";
+}
+
+}
+/*search box start*/
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  margin-top: 5px;
+
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: grey;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+form.example button:hover {
+  background: lightgrey;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/*search box end*/
+/*Copy to all pages end*/
+
+img{
+  border-style: cover;
+  display: block;
+}
+.footer {
+   position: absolute;
+   width: 100%;
+   background-color: maroon;
+   color: white;
+   text-align: center;
+   font-family:"Oswald";
+   /*height:60px;*/
+}
+p{
+  color: black;
+  text-aligns: left;
+  font-size: 20px;
+}
+/*Signin form text start*/
+.form {
+  position:absolute;
+  top:46%;
+  left:50%;
+  right: 50%;
+  transform:translate(-50%,-50%);
+  width:400px;
+  height:320px;
+  background: gray;
+ /* box-shadow:5px 5px 10px 5px #ccc;*/
+}
+.form .tab-header {
+  height:50px;
+  line-height:50px;
+  font-family: "Oswald";
+}
+.form .tab-header > div {
+  width:100%;
+  float:left;
+  text-align:center;
+  font-size: 30px;
+  background:#ddd;
+  color:#555;
+  cursor:pointer;
+  font-family: "Oswald";
+}
+.form .tab-header > div.active {
+  background:#f5f5f5;
+  color:#111;
+
+}
+.form .tab-content {
+  padding:20px;
+}
+.form .tab-content .form-element {
+  margin:10px 0px;
+}
+.form .tab-content .form-element input {
+  width:100%;
+  padding:10px;
+  border:1px solid #aaa;
+  font-size:16px;
+  background:#f5f5f5;
+  border-radius:5px;
+  outline:none;
+  font-family: "Oswald";
+}
+.form .tab-content .form-element input[type="checkbox"] {
+  width:30px;
+  margin:8px 0px;
+  margin-left:-5px;
+}
+.form .tab-content .form-element label {
+  color:#111;
+}
+.form .tab-content .form-element button {
+  margin-top:5px;
+  width:100%;
+  padding:10px;
+  border:none;
+  outline:none;
+  background:#00acee;
+  color:#f5f5f5;
+  font-size:16px;
+  text-transform:uppercase;
+  cursor:pointer;
+  border-radius:8px;
+  font-family: "Oswald";
+}
+.form .tab-content > div.active {
+  display:block;
+}
+.form .tab-content > div {
+  display:block;
+}/*Signin form text end*/.
+
+/*market research table start*/
+table {
+  border-collapse: collapse;
+  width: 80%;
+  font-family:"Oswald";
+  left:10%;
+}
+
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+  font-family:"Oswald";
+}
+
+td, th {
+  text-align: center;
+  padding: 15px;
+  font-family:"Oswald";
+}
+
+th{
+    color:white;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  font-family:"Oswald";
+}
+/*market research table end*/
+
+/*flex start*/
+/*create 2 equal columns*/
+.column{
+    float:left;
+    width:50%;
+    padding:1px;
+}
+/*clear floats after columns*/
+.row:after{
+    content:"";
+    display:table;
+    clear:both;
+}
+.flex-container{
+    display:flex;
+    flex-wrap:wrap;
+    background-color:white;
+    width:100%; /*450px;*/
+    border-radius:8px;
+    align-content:space-between;
+    justify-content:center;
+    align-items:center;
+    align-content:space-around;
+}
+.flex-container > div{
+    background-color:#f1f1f1;
+    width:200px;
+    margin:10px;
+    text-align:center;
+    line-height:100px;
+    font-size:15px;
+    border-radius:8px;
+}
+
+div.flex-contain:hover{
+    background-color:#f1fff1;
+}
+
+.flex-contain > div{
+    background-color:#f1f1f1;
+    width:200px;
+    margin:10px;
+    text-align:center;
+    line-height:75px;
+    font-size:10px;
+    border-radius:8px;
+}
+
+.indexvalue_green{
+    font-size:20px;
+    color:green;
+    .indexvalue_green{
+    background:orange !important;
+}
+}
+
+.indexvalue_red{
+    font-size:20px;
+    color:red;
+    .indexvalue_red{
+    background:orange !important;
+}
+}
+
+.indexname{
+    font-size:20px;
+    font-color:orange;
+}
+/*flex end*/
